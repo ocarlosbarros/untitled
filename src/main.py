@@ -1,5 +1,6 @@
 import pygame
-from screens.screen import Screen
+from screen import Screen
+from state_manager import StateManager
 
 pygame.init()
 
@@ -10,18 +11,21 @@ BGCOLOR_GAMEPLAY = (0, 0, 0)
 
 screen = Screen("Untitled Game", HD_RESOLUTION)
 
-#Screen Manager
-context = 2
+#State Manager
+state_manager = StateManager(screen)
 
-
+print("ANTES DO LOOP", type(state_manager.currentState).__name__)
 
 running = True
 while running:
 
-    if(context == 1):
-        screen.show(BGCOLOR_MENU)
-    else:
-        screen.show(BGCOLOR_GAMEPLAY)
+    print("ANTES DO UPDATE", type(state_manager.currentState).__name__)
+
+    # simula um click em novo jogo
+    state_manager.update()
+
+    print("DEPOIS DO UPDATE", type(state_manager.currentState).__name__)
+
 
     pygame.display.update()
 
