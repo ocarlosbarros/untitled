@@ -6,3 +6,7 @@ class MainMenu:
 
     def update(self):
         return 'gameplay'
+
+    
+    def draw(self):
+        self.screen.show((77, 77, 77))

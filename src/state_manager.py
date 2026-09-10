@@ -18,3 +18,6 @@ class StateManager:
 
         if transition == 'gameplay':
             self.setState(Gameplay(self.screen))
+
+    def draw(self):
+        self.currentState.draw()
