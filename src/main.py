@@ -14,18 +14,13 @@ screen = Screen("Untitled Game", HD_RESOLUTION)
 #State Manager
 state_manager = StateManager(screen)
 
-print("ANTES DO LOOP", type(state_manager.currentState).__name__)
+
+left_mouse_button = 1
 
 running = True
 while running:
-
-    print("ANTES DO UPDATE", type(state_manager.currentState).__name__)
-
-    # simula um click em novo jogo
-    state_manager.update()
-
-    print("DEPOIS DO UPDATE", type(state_manager.currentState).__name__)
-
+    
+    state_manager.draw()
 
     pygame.display.update()
 
@@ -33,3 +28,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
+
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == left_mouse_button:
+                state_manager.update() 
