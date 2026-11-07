@@ -7,6 +7,8 @@ class Screen:
         pygame.display.set_caption(title)
 
 
-
     def show(self, background_color):
         self.surface.fill(background_color)
+
+    def draw(self, screen, position):
+        self.surface.blit(screen, position)
